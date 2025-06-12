@@ -18,10 +18,11 @@ class Quiz_brain:
    
     def check_answer(self,user_answer,correct_answer):
         if user_answer.lower()==correct_answer.lower():
-            print("You got it Right")
+            print("You got it Right") 
             self.score+=1
         else:
             print("That's wrong")
         print(f"Te correct answer was:{correct_answer}")
         print(f"Your current score is:{self.score}/{self.question_number}")
+        print("\n")
 
