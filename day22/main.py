@@ -29,5 +29,11 @@ while game_is_on:
     time.sleep(0.1)
     screen.update()
     ball.move()
+    #Detecte collision wiht wall
+    if ball.ycor()>370 or ball.ycor()<-370:
+        #need bounce
+        ball.bounce()
+   
+
 
 screen.exitonclick()
