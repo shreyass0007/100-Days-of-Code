@@ -10,7 +10,7 @@ screen.title("pong",)
 
 r_paddle=Paddle((350,0))
 l_paddle=Paddle((-350,0))
-top_paddle=Paddle((100,100))
+#top_paddle=Paddle((100,100))
 
 ball=Ball()
 
@@ -32,8 +32,11 @@ while game_is_on:
     #Detecte collision wiht wall
     if ball.ycor()>370 or ball.ycor()<-370:
         #need bounce
-        ball.bounce()
-   
+        ball.bounce_y()
+    
+    #Detect collision with paddle
+    if ball.distance(r_paddle)<50 and ball.xcor()>348 or ball.distance(l_paddle)<50 and ball.xcor()<-348  :
+       ball.bounce_x()
 
 
 screen.exitonclick()
