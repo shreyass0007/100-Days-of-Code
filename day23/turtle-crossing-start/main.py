@@ -28,7 +28,7 @@ while game_is_on:
 
    #detect succuessful crossing
 
-    if screen.distance(player)<20:
-        game_is_on=False
-        print("You win the game")
+    if player.is_at_finish_line():
+        player.go_to_start()
+        car_manager.level_UP()
 screen.exitonclick()
