@@ -13,6 +13,9 @@
 
 import pandas as pd
 df=pd.read_csv("D:/CODEING/100 days of python/day25/weather_data - Sheet1.csv")
-print(df["temp"])
-type(df)
+# print(type(df["temp"]))
+
+data_dict=df.to_dict()
+print(data_dict)
+
 
