@@ -19,6 +19,8 @@ def button_clicked():
 button=Button(text="Click me",command=button_clicked)
 button.grid(column=1,row=1)
 
+button_1=Button(text="Click me",command=button_clicked)
+button_1.grid(column=2,row=0)
 #Entry
 input.grid(column=3,row=3)
 
