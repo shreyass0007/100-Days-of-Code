@@ -9,12 +9,44 @@ FONT_NAME = "Courier"
 WORK_MIN = 25
 SHORT_BREAK_MIN = 5
 LONG_BREAK_MIN = 20
+reps=0
+timer=None
+timer_text=None
 
 # ---------------------------- TIMER RESET ------------------------------- # 
+def reset():
+    
+    window.after_cancel(timer)
+    canvas.itemconfig(timer_text,text="00:00")
+    title_label.config(text="Timer")
+    check_marks.config(text="")
+    
 
 # ---------------------------- TIMER MECHANISM ------------------------------- # 
 def start_timer():
-    count_down(10)
+    global reps
+    reps+=1
+
+    work_sec=WORK_MIN *60
+    short_break=SHORT_BREAK_MIN*60
+    long_break=LONG_BREAK_MIN*60
+    
+    
+    if reps%8==0:
+        count_down(long_break)
+        title_label.config(text="Break",fg=RED)
+       
+    elif reps%2==0:
+        count_down(short_break)
+        title_label.config(text="Break",fg=PINK)
+        
+        
+    else:
+        count_down(work_sec)
+        title_label.config(text="Work",fg=GREEN )
+        
+
+    
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- # 
 
 def count_down(count):
@@ -25,7 +57,17 @@ def count_down(count):
 
     canvas.itemconfig(timer_text,text=f"{count_min}:{count_sec}")
     if(count>0):
-        window.after(1000,count_down,count-1)
+        global timer
+        timer=window.after(1000,count_down,count-1)
+    else:
+        start_timer()
+        mark=""
+        work_session=math.floor(reps/2)
+        for _ in range(work_session):
+            mark+="✔"
+        check_marks.config(text=mark)
+
+
 
 # ---------------------------- UI SETUP ------------------------------- #
 
@@ -48,13 +90,13 @@ canvas.grid(column=1,row=1)
 start_button=button = Button(text="Start",command=start_timer)
 start_button.grid(column=0,row=2)
 
-reset_button=button = Button(text="Reset")
+reset_button=button = Button(text="Reset",command= reset)
 reset_button.grid(column=2,row=2)
 
 check_marks=Label(text="✔",fg=GREEN,bg=YELLOW)
 check_marks.grid(column=1,row=3)
 
-label = Label(text="Timer",font=(FONT_NAME,24,'bold'),bg=YELLOW,fg=GREEN)
+title_label = Label(text="Timer",font=(FONT_NAME,24,'bold'),bg=YELLOW,fg=GREEN)
 
-label.grid(column=1,row=0)
+title_label.grid(column=1,row=0)
 window.mainloop()
