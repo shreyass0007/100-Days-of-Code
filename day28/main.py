@@ -8,7 +8,7 @@ FONT_NAME = "Courier"
 WORK_MIN = 25
 SHORT_BREAK_MIN = 5
 LONG_BREAK_MIN = 20
-FG=GREEN
+
 # ---------------------------- TIMER RESET ------------------------------- # 
 
 # ---------------------------- TIMER MECHANISM ------------------------------- # 
@@ -27,12 +27,14 @@ canvas.create_image(100,112,image=tomato_img)
 canvas.create_text(100,130,text="00:00",fill="white",font=(FONT_NAME,35,"bold"))
 canvas.grid(column=1,row=1)
 
-start_button=button = Button(text="start")
+start_button=button = Button(text="Start")
 start_button.grid(column=0,row=2)
 
-reset_button=button = Button(text="reset")
+reset_button=button = Button(text="Reset")
 reset_button.grid(column=2,row=2)
 
+check_marks=Label(text="✔",fg=GREEN,bg=YELLOW)
+check_marks.grid(column=1,row=3)
 
 label = Label(text="Timer",font=(FONT_NAME,24,'bold'),bg=YELLOW,fg=GREEN)
 
