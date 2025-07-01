@@ -43,6 +43,16 @@ def save():
                 file.write(f"{website} | {email} | {password}\n")
                 web_entry.delete(0,END)
                 pass_entry.delete(0,END)
+
+#--------------------COPY PASSWORD-------------------#
+def copy_password():
+    password = pass_entry.get()
+    if password:
+        pyperclip.copy(password)
+        messagebox.showinfo(title="Copied!", message="Password copied to clipboard!")
+    else:
+        messagebox.showwarning(title="Warning", message="No password to copy!")
+
 #---------------------UI SETUP-----------------------
 window = Tk()
 window.title("Password Manager")
@@ -77,7 +87,10 @@ pass_entry.grid(column=1, row=3, padx=5, pady=5,sticky="w")  # Left-aligned
 
 # Buttons
 pass_button = Button(text="Generate Password",width=15,command=generate_password)
-pass_button.grid(column=2, row=3, padx=5, pady=5, sticky="w")  # Left-aligned  # Left-aligned
+pass_button.grid(column=2, row=3, padx=5, pady=5, sticky="w")  # Left-aligned
+
+copy_button = Button(text="Copy", width=6, command=copy_password)
+copy_button.grid(column=3, row=3, padx=5, pady=5, sticky="w")  # Left-aligned
 
 add_button = Button(text="Add", width=36,command=save)
 add_button.grid(column=1, row=4, columnspan=3, padx=5, pady=5)

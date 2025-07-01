@@ -6,30 +6,31 @@ BACKGROUND_COLOR = "#B1DDC6"
 
 
 def next_card():
-    global current_card
+    global current_card,flip_timer
     current_card=random.choice(data_dict)
-    
-    
-    canvas.itemconfig(card_title,text="French")
-    canvas.itemconfig(card_word,text=current_card["French"])
-
+    canvas.itemconfig(card_title,text="French",fill="black")
+    canvas.itemconfig(card_word,text=current_card["French"],fill="black")
+    canvas.itemconfig(card_background,image=card_img)
+    flip_timer=window.after(2000,func=flip_card)
 def flip_card():
     global current_card
-    canvas.itemconfig(card_title,text="English")
-    canvas.itemconfig(card_word,text=current_card["English"])
+    canvas.itemconfig(card_title,text="English",fill="white")
+    canvas.itemconfig(card_word,text=current_card["English"],fill="white")
+    canvas.itemconfig(card_background,image=back_img)
 
     
 window = Tk()
 window.title("Flashy")
 window.minsize(width=800, height=526)
 window.config(padx=50,pady=50,bg=BACKGROUND_COLOR)
-window.after(2000,func=flip_card)
+flip_timer=window.after(2000,func=flip_card)
 
 #canvas setup
 
 canvas=Canvas(width=800,height=526,bg=BACKGROUND_COLOR,highlightbackground=BACKGROUND_COLOR)
 card_img = PhotoImage(file="card_front.png")
-canvas.create_image(400,263,image=card_img)
+card_background=canvas.create_image(400,263,image=card_img)
+back_img=PhotoImage(file="card_back.png")
 data=pd.read_csv("day31/flash-card-project-start/data/french_words.csv")
 data_dict=data.to_dict(orient="records")
 current_card={}
