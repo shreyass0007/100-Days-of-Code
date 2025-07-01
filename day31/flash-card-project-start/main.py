@@ -19,6 +19,7 @@ print(data_dict)
 def next_card():
     current_card=random.choice(data_dict)
     current_card=current_card["French"]
+    
     canvas.itemconfig(card_title,text="French")
     canvas.itemconfig(card_word,text=current_card)
 
@@ -32,13 +33,13 @@ Right_img = PhotoImage(file="right.png")
 Right_button=Button(image=Right_img, highlightthickness=0,command=next_card)
 Right_button.grid(row=1,column=1)
 
-card_title=canvas.create_text(400,150,text="French",font=("Arial",40,"italic"))
-card_word=canvas.create_text(400,263,text="word",font=("Arial",60,"bold"))
+card_title=canvas.create_text(400,150,text="",font=("Arial",40,"italic"))
+card_word=canvas.create_text(400,263,text="",font=("Arial",60,"bold"))
 
 canvas.grid(row=0,column=0,columnspan=2)
 french_word=pd.read_csv("day31/flash-card-project-start/data/french_words.csv")
 
-
+next_card()
 
 
 window.mainloop()
