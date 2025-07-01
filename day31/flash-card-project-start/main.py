@@ -24,7 +24,8 @@ def flip_card():
 def is_known():
     to_learn.remove(current_card)
     print(len(to_learn))
-    next_card()
+    data=pd.DataFrame(to_learn)
+    data.to_csv("words_to_learn.csv")
     
 window = Tk()
 window.title("Flashy")
