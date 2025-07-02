@@ -2,9 +2,15 @@ from tkinter import *
 import pandas as pd
 import random
 BACKGROUND_COLOR = "#B1DDC6"
+to_learn={}
 
-data=pd.read_csv("day31/flash-card-project-start/data/french_words.csv")
-to_learn=data.to_dict(orient="records")
+try:
+    data=pd.read_csv("word_to_learn.csv")
+except FileNotFoundError:
+    original_data=pd.read_csv("day31/flash-card-project-start/data/french_words.csv")
+    to_learn=original_data.to_dict(orient="records")
+else:
+    to_learn=data.to_dict(orient="records")
 current_card={}
 
 
@@ -25,7 +31,7 @@ def is_known():
     to_learn.remove(current_card)
     print(len(to_learn))
     data=pd.DataFrame(to_learn)
-    data.to_csv("words_to_learn.csv")
+    data.to_csv("words_to_learn.csv",index=False)
     
 window = Tk()
 window.title("Flashy")

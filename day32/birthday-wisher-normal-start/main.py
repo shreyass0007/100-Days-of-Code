@@ -4,8 +4,8 @@ import random
 import smtplib
 import os
 
-MY_EMAIL = "shreshshende.777@gmail.com"
-MY_PASSWORD = "uzjkgteindtqynaa"  # Try an App Password if 2FA is on
+MY_EMAIL = "sender_mail_id"
+MY_PASSWORD = "sender_mail_app_password"  # Try an App Password if 2FA is on
 today = dt.datetime.now()
 today_tuple = (today.month, today.day)
 
