@@ -2,8 +2,8 @@ import smtplib
 import random
 import datetime as dt
 
-my_email = "shreshshende.777@gmail.com"
-password = "ywsgnsgssomczuce"  # This is an app password, right?
+my_email = "Yourmail@gmail.com"
+password = "use_app"  # This is an app password, right?
 
 now=dt.datetime.now()
 day_of_week=now.weekday()
@@ -12,7 +12,7 @@ print(day_of_week)
 def get_quote():
     with open("day32/Birthday Wisher (Day 32) start/quotes.txt") as file:
         lines=file.readlines()
-        quote=random.choice(lines)
+        quote=random.choice(lines)S
         return quote
 
 quote=get_quote()
@@ -23,7 +23,7 @@ if day_of_week==1:
         connection.login(user=my_email, password=password)
         connection.sendmail(
             from_addr=my_email,
-            to_addrs="shreyasshende.999@gmail.com",
+            to_addrs="receiver_mail",
             msg=f"Subject:Hello\n\n{quote}."
         )
 
