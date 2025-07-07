@@ -29,16 +29,16 @@ if will_rain:
     client = Client(account_sid, auth_token)
     message = client.messages.create(
         body="It's going to rain today.Rember to bring an ☔",
-        from_="+13412470601",
-        to="+919022159520",
+        from_="twilio Phone number",
+        to="the no you mant to send sms",
         )
     
 else:
     client = Client(account_sid, auth_token)
     message = client.messages.create(
         body="No Rain Today",
-        from_="+13412470601",
-        to="+919022159520",
+        from_="twilio Phone number",
+        to="the no you mant to send sms",
         )
 
 print(message.status)
