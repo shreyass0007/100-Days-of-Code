@@ -1,4 +1,31 @@
 import requests
+MY_LAT=18.521374
+MY_LON=73.854507
+API_KEY="f1cc06880d866ec1f608a256d8851e1a"
+OWM_ENDPOINT="http://api.openweathermap.org/data/2.5/forecast"
+PARAMETER={
+    "lat":MY_LAT,
+    "lon":MY_LON,
+    "appid":API_KEY,
+    "cnt":4,
+}
+response=requests.get(OWM_ENDPOINT,params=PARAMETER)
+response.raise_for_status()
+weather_data=response.json()
+#print(weather_data["list"][0]["weather"][0]["id"])
+will_rain=False
+for hour_data in weather_data["list"]:
+    condition_code=hour_data["weather"][0]["id"]
+    if int(condition_code) <700:
+        wil_rain=True
+
+if will_rain:
+    print("Bring an Umbrella")
+else:
+    print("No Rain Today")
+
+
+import requests
 import os
 from dotenv import load_dotenv
 from twilio.rest import Client
@@ -29,16 +56,16 @@ if will_rain:
     client = Client(account_sid, auth_token)
     message = client.messages.create(
         body="It's going to rain today.Rember to bring an ☔",
-        from_="twilio Phone number",
-        to="the no you mant to send sms",
+        from_="+13412470601",
+        to="+919022159520",
         )
     
 else:
     client = Client(account_sid, auth_token)
     message = client.messages.create(
         body="No Rain Today",
-        from_="twilio Phone number",
-        to="the no you mant to send sms",
+        from_="+13412470601",
+        to="+919022159520",
         )
 
 print(message.status)

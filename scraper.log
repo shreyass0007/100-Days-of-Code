@@ -1,0 +1,9 @@
+2025-07-08 10:57:29,642 - WARNING - Error sending stats to Plausible: error sending request for url (https://plausible.io/api/event)
+2025-07-08 10:59:20,246 - ERROR - Error during scraping: Message: 
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:199:5
+NoSuchElementError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:552:5
+dom.find/</<@chrome://remote/content/shared/DOM.sys.mjs:136:16
+
+2025-07-08 10:59:20,247 - WARNING - No results found.
