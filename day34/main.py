@@ -2,7 +2,7 @@
 # name:str
 # height:float
 
-def police_check(age:int):
+def police_check(age:int)->bool:
     if age>18:
         can_drive=True
     else:

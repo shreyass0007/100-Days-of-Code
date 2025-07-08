@@ -12,7 +12,7 @@ print(day_of_week)
 def get_quote():
     with open("day32/Birthday Wisher (Day 32) start/quotes.txt") as file:
         lines=file.readlines()
-        quote=random.choice(lines)S
+        quote=random.choice(lines)
         return quote
 
 quote=get_quote()

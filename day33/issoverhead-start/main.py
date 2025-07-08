@@ -33,7 +33,7 @@ def is_night():
     sunrise = int(data["results"]["sunrise"].split("T")[1].split(":")[0])
     sunset = int(data["results"]["sunset"].split("T")[1].split(":")[0])
 
-    time_now = int(datetime.now())
+    time_now = (datetime.now())
 
     if time_now>=sunset or time_now<=sunrise:
         return True
