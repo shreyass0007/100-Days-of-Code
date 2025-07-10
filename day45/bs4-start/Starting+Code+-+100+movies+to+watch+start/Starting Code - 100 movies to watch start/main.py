@@ -14,5 +14,5 @@ movie_title=soup.find_all(name="h3",class_="title")
 for title in movie_title:
     name=title.get_text()
     movie_titles.append(name)
-
-print(movie_titles)
+reversed_list = list(reversed(movie_titles))
+print(reversed_list)
