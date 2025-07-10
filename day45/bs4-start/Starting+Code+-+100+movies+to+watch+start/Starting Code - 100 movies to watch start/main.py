@@ -15,4 +15,6 @@ for title in movie_title:
     name=title.get_text()
     movie_titles.append(name)
 reversed_list = list(reversed(movie_titles))
-print(reversed_list)
+
+with open("movies.txt", "a", encoding="utf-8") as file:  # ✅ Always use UTF-8
+    file.write("\n".join(reversed_list))
