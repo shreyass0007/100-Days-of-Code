@@ -1,0 +1,12 @@
+CSS-Cascading Style Sheets
+
+ID Selector
+#main{
+    color:red
+}
+
+Attrubute Selector
+ 
+p[draggable]{
+    color:red
+}

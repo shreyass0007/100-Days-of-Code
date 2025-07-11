@@ -1,0 +1,15 @@
+Color-Properties
+html{
+    background-color:red
+}
+h1{c
+color:blue
+}
+
+### Font Properties
+
+## Font Size
+h1{
+    font-size:20px
+}
+
