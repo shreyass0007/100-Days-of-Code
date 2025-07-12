@@ -18,4 +18,4 @@ for n in range(len(event_time)):
     }
 print(events)
 
-driver.close()
+driver.quit()
