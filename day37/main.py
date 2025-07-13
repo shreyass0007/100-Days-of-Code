@@ -6,8 +6,8 @@
 import requests
 from datetime import datetime
 
-USERNAME="shresh"
-TOKEN="abcdefghijklmnop"
+USERNAME="your user name"
+TOKEN="add_YOUR token"
 
 PIXELA_END_POINT="https://pixe.la/v1/users"
 GRAPH_ID="graph1"
